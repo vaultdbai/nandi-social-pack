@@ -1,0 +1,24 @@
+id: weekly-report
+name: Weekly social report
+description: Reads your accounts' own numbers and replies (read only), writes the week's report into My notes, and hands over any replies to comments for you to post. Run it on Fridays with a schedule trigger.
+steps:
+  - id: report
+    agent: social-manager
+    input: >-
+      Write this week's social report. Read my-notes/social/posts.md for what
+      went out in the last seven days. In the browser, read each post's
+      numbers and replies, and the account's analytics page, without
+      clicking anything that changes them. Add first-week numbers to
+      posts.md. Write my-notes/social/reports/<YYYY-Www>.md: what went out,
+      numbers per post, best and worst, replies that need an answer (each
+      with a drafted reply), and three changes for next week. Reply with the
+      report's summary and how many replies you drafted.
+  - id: replies
+    agent: social-manager
+    input: >-
+      From the report you just wrote ({{report.output}}), take the drafted
+      replies, at most five. For each: open the comment, type the reply into
+      its reply box, and hand it over with pilot_browser__browser_hand_over.
+      Note each answer in the report. If there are none, reply "No replies to
+      send".
+    on_failure: continue

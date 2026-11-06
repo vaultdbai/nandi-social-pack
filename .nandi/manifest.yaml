@@ -1,0 +1,7 @@
+id: social-pack
+name: Nandi Social
+description: Social Manager plans your campaigns, writes posts in your voice and fills in LinkedIn and X in a browser you watch. You review and press Post yourself.
+version: 0.1.0
+min_nandi_version: 0.1.0
+agents: [social-manager]
+workflows: [plan-campaign, draft-week, post-now, weekly-report, social-research]

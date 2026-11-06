@@ -1,0 +1,32 @@
+id: plan-campaign
+name: Plan a social campaign
+description: Social Manager asks a few questions, writes the campaign into My notes and adds dated drafts to the social calendar.
+steps:
+  - id: questions
+    agent: social-manager
+    input: >-
+      We're planning a new social media campaign. Read my-notes/social/voice.md
+      and the files in my-notes/social/campaigns/ (they may not exist yet).
+      Reply with at most six short, numbered questions you need answered to
+      plan it: goal, audience, platforms (LinkedIn, X), dates, key messages,
+      what success looks like. Skip any the notes already answer.
+  - id: answers
+    step_type: manual
+    instructions: >-
+      {{questions.output}}
+
+
+      Answer these in a few lines and mark this step done.
+    deadline_hours: 168
+  - id: plan
+    agent: social-manager
+    input: >-
+      The answers to your campaign questions: {{answers.output}}
+
+
+      Write my-notes/social/campaigns/<short-name>.md (goal, audience,
+      platforms, dates, key messages, success). Then add one row per planned
+      post to my-notes/social/calendar.md, dated across the campaign, with
+      a first draft each and status draft. If voice.md is missing, write it
+      from what you know and mark what to check. Reply with the campaign
+      file name and the planned dates per platform.

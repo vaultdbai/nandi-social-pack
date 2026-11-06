@@ -1,0 +1,15 @@
+id: post-now
+name: Post the next ready post
+description: Opens the next ready post in LinkedIn's or X's composer and hands it over to you to review and press Post, then records what went out.
+steps:
+  - id: post
+    agent: social-manager
+    input: >-
+      Post the next post. In my-notes/social/calendar.md find the earliest
+      row with status ready and a date of today or earlier. If there is none,
+      reply "Nothing ready to post" and stop. Otherwise open its platform's
+      composer, type the post, and hand it over with
+      pilot_browser__browser_hand_over. When the person answers, update the
+      row (posted or skipped) and, if it went out, add it to
+      my-notes/social/posts.md with its final text and link. Reply with what
+      happened.

@@ -1,0 +1,33 @@
+id: draft-week
+name: Draft this week's posts
+description: Writes the week's posts from the campaigns and your voice, then waits for your review before marking them ready. Run it on Mondays with a schedule trigger.
+steps:
+  - id: draft
+    agent: social-manager
+    input: >-
+      Draft this week's posts. Read my-notes/social/voice.md, the campaigns in
+      my-notes/social/campaigns/ and my-notes/social/calendar.md. For every
+      row dated this week (Monday to Sunday) with status draft, write the
+      final text in the row. Don't change status yet. Reply with each post:
+      date, platform, and the full text.
+  - id: review
+    step_type: manual
+    instructions: >-
+      This week's posts:
+
+
+      {{draft.output}}
+
+
+      Edit them in My notes › social/calendar.md if you like. Then reply "ok",
+      or list what to change, and mark this step done.
+    deadline_hours: 72
+  - id: ready
+    agent: social-manager
+    input: >-
+      The review of this week's posts: {{review.output}}
+
+
+      Apply any changes asked for to my-notes/social/calendar.md, then set
+      this week's reviewed rows to status ready. Reply with the dates and
+      platforms that are ready.

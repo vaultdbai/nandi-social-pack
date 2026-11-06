@@ -1,0 +1,22 @@
+id: social-research
+name: Research a topic or competitor
+description: Reads public pages and posts about a topic or a competitor (read only, no sign-in needed) and writes notes with links into My notes.
+steps:
+  - id: topic
+    step_type: manual
+    instructions: >-
+      Which topic, competitor or account should Social Manager look into, and
+      what do you want to learn (what they post, what gets engagement, what
+      people say)? Write it here and mark this step done.
+    deadline_hours: 72
+  - id: research
+    agent: social-manager
+    input: >-
+      Research this, read only: {{topic.output}}
+
+
+      Use web_search__search and web_search__read_page, and the browser for
+      public pages. Never like, follow or message anyone. Write
+      my-notes/social/research/<short-topic>.md with what you found, links,
+      and what it means for our plan. Reply with the three most useful
+      findings.
