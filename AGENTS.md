@@ -10,7 +10,7 @@ Inside the Nandi workspace, the workspace `AGENTS.md` adds the general standards
 
 - **A person publishes.** Never make the agent click Post, Publish, Share, Send, Reply or Tweet, or press Enter to send. It calls `browser_hand_over` instead. Never automate likes, follows, connection requests, messages, reposts or comments on others' posts.
 - `policies/social-posting.md` applies only to `agent:social-manager` (the installer refuses pack policies for other agents). Change it only to refuse more.
-- An agent's `skill.md` body stays at **900 words or fewer**.
+- An agent's `agent.md` body stays at **900 words or fewer**.
 - Its `capabilities` must match the registry entry in `nandi-registry` **exactly**: `tools` = `allowed-tools`, `network` = the `network.allow` hosts, `pilots` = the `pilots` ids, `requires_approval` = `requires_approval`.
 - Every tool that writes files or runs commands **requires approval** (writes to My notes are the user's one decision in Nandi).
 - **No `model:`** in a pack. Pack agents use the user's default model.
